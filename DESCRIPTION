@@ -1,0 +1,11 @@
+Package: multisphere
+Type: Package
+Title: Volume and inertia moments of multi-sphere geometries
+Version: 1.0
+Date: 2024-02-27
+Author: Lukasz Laniewski-Wollk
+Maintainer: Lukasz Laniewski-Wollk <l.laniewskiwollk@pw.edu.pl>
+Description: Package for calculation of volume and inertia moments of multi-sphere configurations
+License: GPL (>= 2)
+Imports: Rcpp (>= 1.0.10)
+LinkingTo: Rcpp
