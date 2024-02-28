@@ -7,9 +7,9 @@ using namespace Rcpp;
 List sphere_integrals(DataFrame tab) {
   List ret;
   if ((!tab.containsElementNamed("x")) || 
-      (!tab.containsElementNamed("x")) ||
-      (!tab.containsElementNamed("x")) ||
-      (!tab.containsElementNamed("x"))) {
+      (!tab.containsElementNamed("y")) ||
+      (!tab.containsElementNamed("z")) ||
+      (!tab.containsElementNamed("r"))) {
     return ret;
   }
   std::vector<sph> spheres;
@@ -23,9 +23,9 @@ List sphere_integrals(DataFrame tab) {
   sphere_set myset(spheres);
   double vol = myset.integrate_fun(FUN3D(1));
   ret["volume"] = vol;
-  double mx = myset.integrate_fun(FUN3D(x));
-  double my = myset.integrate_fun(FUN3D(y));
-  double mz = myset.integrate_fun(FUN3D(z));
+  double mx = myset.integrate_fun(FUN3D(x))/vol;
+  double my = myset.integrate_fun(FUN3D(y))/vol;
+  double mz = myset.integrate_fun(FUN3D(z))/vol;
   ret["center"] = NumericVector({mx,my,mz});
   double Ixx = myset.integrate_fun(FUN3D((x-mx)*(x-mx)));
   double Ixy = myset.integrate_fun(FUN3D((x-mx)*(y-my)));
