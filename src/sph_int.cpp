@@ -60,7 +60,7 @@ retval integrate(const fun1d& f, double a_, double b_, double eps, bool verbose)
     if (verbose) printf("verbose integrate %lf %lf\n",a_,b_);
     if (fabs(b_-a_) < eps) return {0,0};
     std::set< inter > q;
-    double tot_err;
+    double tot_err=0;
     auto add = [&](double a, double b, double eps_) {
         double ab = (a+b)/2;
         double d = (b-a)/2;
