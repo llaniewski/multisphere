@@ -106,7 +106,7 @@ retval integrate(const fun1d& f, double a_, double b_, double eps, bool verbose)
 
 sphere_set::sphere_set(const std::vector<sph>& spheres_)
     : spheres(spheres_) {
-        assert(spheres.size() <= MAXN);
+        if (spheres.size() > MAXN) throw;
 };
 
 retval sphere_set::seg_fun(const fun3d& f, double x, double y, double z, double eps) const {

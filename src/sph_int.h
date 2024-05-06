@@ -4,7 +4,7 @@
 
 #define FUN3D(x__) [&](double x, double y, double z, double eps) -> retval { return {x__,0.0};}
 
-const int MAXN = 10;
+const int MAXN = 50;
 
 struct sph {
     double x,y,z,r;
